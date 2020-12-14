@@ -3,20 +3,22 @@
     <v-card-text class="d-flex justify-center py-10"> <v-icon>mdi-home</v-icon> </v-card-text>
 
     <v-card-actions class="d-flex flex-wrap justify-center">
-      <v-speed-dial v-for="(icon, index) in icons" :key="index" v-model="fab[index]">
-        <template #activator>
-          <v-btn v-model="fab[index]" icon fab small>
-            <v-icon>{{ icon }}</v-icon>
-          </v-btn>
-        </template>
-        <v-btn fab dark small color="green">
-          <v-icon>mdi-pencil</v-icon>
-        </v-btn>
-        <v-btn fab dark small color="indigo">
-          <v-icon>mdi-plus</v-icon>
-        </v-btn>
-      </v-speed-dial>
+      <v-btn v-for="(icon, index) in icons" :key="index" icon small @click="showAction">
+        <v-icon>{{ icon }}</v-icon>
+      </v-btn>
     </v-card-actions>
+    <div>
+      <v-overlay absolute :value="overlay">
+        <div class="d-flex justify-center">
+          <v-btn color="success" fab dark small @click="overlay = false">
+            <v-icon dark>mdi-plus</v-icon>
+          </v-btn>
+          <v-btn color="red" fab dark small @click="overlay = false">
+            <v-icon dark>mdi-delete</v-icon>
+          </v-btn>
+        </div>
+      </v-overlay>
+    </div>
   </v-card>
 </template>
 <script lang="ts">
@@ -30,6 +32,10 @@ export default class GameCell extends Vue {
   @Inject()
   private icons!: string[];
 
-  private fab = new Array(5);
+  private overlay = false;
+
+  private showAction() {
+    this.$nextTick(() => (this.overlay = !this.overlay));
+  }
 }
 </script>
