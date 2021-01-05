@@ -4,7 +4,8 @@
 
     <v-card-actions class="d-flex flex-wrap justify-center">
       <v-btn v-for="(icon, index) in icons" :key="index" icon small @click="showAction">
-        <v-icon>{{ icon }}</v-icon>
+        <!-- eslint-disable-next-line vue/attribute-hyphenation -->
+        <component :is="icon" width="24px" height="24px" viewBox="0 0 512 512" />
       </v-btn>
     </v-card-actions>
 
@@ -41,6 +42,18 @@ export default class TableCell extends Vue {
   private showAction() {
     // this.$nextTick(() => (this.overlay = true));
     this.overlay = true;
+  }
+
+  // private iconComponent(icon: string): any {
+  //   return () => import(`../assets/icons/${icon}.svg`);
+  // }
+
+  created(): void {
+    this.icons.forEach(icon => {
+      if (this.$options?.components) {
+        this.$options.components[icon] = () => import(`../assets/icons/${icon}.svg`);
+      }
+    });
   }
 }
 </script>

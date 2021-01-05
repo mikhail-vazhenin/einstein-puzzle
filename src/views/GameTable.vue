@@ -1,7 +1,8 @@
 <template>
   <div class="table">
     <v-container fluid>
-      <table-row :icons="row1" :values="row1Values" />
+      <fruit-row />
+      <!-- <table-row :icons="row1" :values="row1Values" /> -->
     </v-container>
   </div>
 </template>
@@ -9,10 +10,12 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import TableRow from "@/components/TableRow.vue";
+import FruitRow from "./rows/FruitRow.vue";
 
 @Component({
   components: {
-    TableRow
+    TableRow,
+    FruitRow
   }
 })
 export default class GameTable extends Vue {
