@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card v-on-clickaway="hideOverlay">
     <v-card-text class="d-flex justify-center py-10"> <v-icon>mdi-home</v-icon> </v-card-text>
 
     <v-card-actions class="d-flex flex-wrap justify-center">
@@ -7,13 +7,14 @@
         <v-icon>{{ icon }}</v-icon>
       </v-btn>
     </v-card-actions>
+
     <div>
-      <v-overlay absolute :value="overlay">
-        <div class="d-flex justify-center">
-          <v-btn color="success" fab dark small @click="overlay = false">
+      <v-overlay absolute :value="overlay" :opacity="0.8">
+        <div class="d-flex justify-center ">
+          <v-btn class="mx-3" color="success" fab dark small @click="hideOverlay">
             <v-icon dark>mdi-plus</v-icon>
           </v-btn>
-          <v-btn color="red" fab dark small @click="overlay = false">
+          <v-btn class="mx-3" color="red" fab dark small @click="hideOverlay">
             <v-icon dark>mdi-delete</v-icon>
           </v-btn>
         </div>
@@ -25,17 +26,25 @@
 import { Component, Inject, Prop, Vue } from "vue-property-decorator";
 
 @Component
-export default class GameCell extends Vue {
+export default class TableCell extends Vue {
   @Prop({ type: Number, required: true })
   private value!: number;
 
   @Inject()
   private icons!: string[];
-
   private overlay = false;
 
+  private hideOverlay() {
+    this.overlay = false;
+  }
+
   private showAction() {
-    this.$nextTick(() => (this.overlay = !this.overlay));
+    // this.$nextTick(() => (this.overlay = true));
+    this.overlay = true;
   }
 }
 </script>
+<style lang="sass" scoped>
+.v-application--is-ltr .v-card__actions > .v-btn.v-btn + .v-btn
+    margin-left: 0px
+</style>
