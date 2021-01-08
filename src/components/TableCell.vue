@@ -1,11 +1,10 @@
 <template>
   <v-card v-on-clickaway="hideOverlay">
-    <v-card-text class="d-flex justify-center py-10"> <v-icon>mdi-home</v-icon> </v-card-text>
+    <v-card-text class="d-flex justify-center py-10"> </v-card-text>
 
     <v-card-actions class="d-flex flex-wrap justify-center">
       <v-btn v-for="(icon, index) in icons" :key="index" icon small @click="showAction">
-        <!-- eslint-disable-next-line vue/attribute-hyphenation -->
-        <component :is="icon" width="24px" height="24px" viewBox="0 0 512 512" />
+        <table-icon :icon="icon" width="24px" height="24px" />
       </v-btn>
     </v-card-actions>
 
@@ -23,14 +22,15 @@
     </div>
   </v-card>
 </template>
+
 <script lang="ts">
-import { Component, Inject, Prop, Vue } from "vue-property-decorator";
+import { Component, Inject, Vue } from "vue-property-decorator";
+import TableIcon from "@/components/TableIcon.vue";
 
-@Component
+@Component({
+  components: { TableIcon }
+})
 export default class TableCell extends Vue {
-  @Prop({ type: Number, required: true })
-  private value!: number;
-
   @Inject()
   private icons!: string[];
   private overlay = false;
@@ -40,20 +40,7 @@ export default class TableCell extends Vue {
   }
 
   private showAction() {
-    // this.$nextTick(() => (this.overlay = true));
     this.overlay = true;
-  }
-
-  // private iconComponent(icon: string): any {
-  //   return () => import(`../assets/icons/${icon}.svg`);
-  // }
-
-  created(): void {
-    this.icons.forEach(icon => {
-      if (this.$options?.components) {
-        this.$options.components[icon] = () => import(`../assets/icons/${icon}.svg`);
-      }
-    });
   }
 }
 </script>

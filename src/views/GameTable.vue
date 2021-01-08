@@ -1,21 +1,28 @@
 <template>
   <div class="table">
     <v-container fluid>
+      <house-row />
+      <pet-row />
       <fruit-row />
-      <!-- <table-row :icons="row1" :values="row1Values" /> -->
+      <drink-row />
+      <nationality-row />
+      <office-row />
     </v-container>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import TableRow from "@/components/TableRow.vue";
-import FruitRow from "./rows/FruitRow.vue";
+import { FruitRow, DrinkRow, PetRow, HouseRow, NationalityRow, OfficeRow } from "./rows";
 
 @Component({
   components: {
-    TableRow,
-    FruitRow
+    FruitRow,
+    DrinkRow,
+    PetRow,
+    HouseRow,
+    NationalityRow,
+    OfficeRow
   }
 })
 export default class GameTable extends Vue {

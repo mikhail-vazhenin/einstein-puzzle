@@ -11,16 +11,14 @@ import { Component, Vue } from "vue-property-decorator";
     TableRow
   }
 })
-export default class FruitRow extends Vue {
+export default class NationalityRow extends Vue {
   private icons = [
-    "fruit-banana",
-    "fruit-cherry",
-    "fruit-grapes",
-    "fruit-pear",
-    "fruit-pineapple",
-    "fruit-raspberry"
+    "nat-usa",
+    "nat-india",
+    "nat-russia",
+    "nat-germany",
+    "nat-great-britain",
+    "nat-skorea"
   ];
-
-  row1Values = [0, 2, 3, 4, 1];
 }
 </script>

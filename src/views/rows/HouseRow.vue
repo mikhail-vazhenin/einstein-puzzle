@@ -1,5 +1,5 @@
 <template>
-  <table-row :icons="icons" :values="row1Values" />
+  <table-row :icons="icons" />
 </template>
 
 <script lang="ts">
@@ -11,14 +11,14 @@ import { Component, Vue } from "vue-property-decorator";
     TableRow
   }
 })
-export default class FruitRow extends Vue {
+export default class HouseRow extends Vue {
   private icons = [
-    "fruit-banana",
-    "fruit-cherry",
-    "fruit-grapes",
-    "fruit-pear",
-    "fruit-pineapple",
-    "fruit-raspberry"
+    "house-blue",
+    "house-orange",
+    "house-green",
+    "house-magenta",
+    "house-yellow",
+    "house-red"
   ];
 
   row1Values = [0, 2, 3, 4, 1];
