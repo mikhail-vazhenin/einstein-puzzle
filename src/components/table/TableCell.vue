@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { Component, Inject, Vue } from "vue-property-decorator";
-import TableIcon from "@/components/TableIcon.vue";
+import TableIcon from "../TableIcon.vue";
 
 @Component({
   components: { TableIcon }

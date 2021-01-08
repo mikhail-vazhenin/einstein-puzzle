@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import TableRow from "@/components/TableRow.vue";
+import TableRow from "@/components/table/TableRow.vue";
 import { Component, Vue } from "vue-property-decorator";
 
 @Component({

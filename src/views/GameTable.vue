@@ -10,13 +10,13 @@
         <office-row />
       </v-container>
     </div>
-    <v-divider vertical></v-divider>
+    <v-divider vertical> </v-divider>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { FruitRow, DrinkRow, PetRow, HouseRow, NationalityRow, OfficeRow } from "./rows";
+import { FruitRow, DrinkRow, PetRow, HouseRow, NationalityRow, OfficeRow } from "./components/rows";
 
 @Component({
   components: {
@@ -28,8 +28,5 @@ import { FruitRow, DrinkRow, PetRow, HouseRow, NationalityRow, OfficeRow } from 
     OfficeRow
   }
 })
-export default class GameTable extends Vue {
-  row1 = ["mdi-train", "mdi-tram", "mdi-airplane", "mdi-car", "mdi-motorbike"];
-  row1Values = [0, 2, 3, 4, 1];
-}
+export default class GameTable extends Vue {}
 </script>

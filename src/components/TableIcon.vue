@@ -1,5 +1,4 @@
 <template>
-  <!-- <component :is="icon" :width="width" :height="height" /> -->
   <img :src="require(`@/assets/icons/${icon}.png`)" alt="" :width="width" :height="height" />
 </template>
 
