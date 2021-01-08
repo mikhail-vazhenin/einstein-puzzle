@@ -1,5 +1,5 @@
 <template>
-  <table-row :icons="icons" :values="row1Values" />
+  <table-row :icons="icons" />
 </template>
 
 <script lang="ts">

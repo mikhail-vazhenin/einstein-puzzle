@@ -20,7 +20,5 @@ export default class HouseRow extends Vue {
     "house-yellow",
     "house-red"
   ];
-
-  row1Values = [0, 2, 3, 4, 1];
 }
 </script>

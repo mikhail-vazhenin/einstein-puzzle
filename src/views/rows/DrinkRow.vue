@@ -1,5 +1,5 @@
 <template>
-  <table-row :icons="icons" :values="row1Values" />
+  <table-row :icons="icons" />
 </template>
 
 <script lang="ts">
@@ -20,7 +20,5 @@ export default class DrinkRow extends Vue {
     "drinks-tea",
     "drinks-wine"
   ];
-
-  row1Values = [0, 2, 3, 4, 1];
 }
 </script>

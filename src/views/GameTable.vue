@@ -1,13 +1,16 @@
 <template>
-  <div class="table">
-    <v-container fluid>
-      <house-row />
-      <pet-row />
-      <fruit-row />
-      <drink-row />
-      <nationality-row />
-      <office-row />
-    </v-container>
+  <div>
+    <div class="table">
+      <v-container fluid>
+        <house-row />
+        <pet-row />
+        <fruit-row />
+        <drink-row />
+        <nationality-row />
+        <office-row />
+      </v-container>
+    </div>
+    <v-divider vertical></v-divider>
   </div>
 </template>
 

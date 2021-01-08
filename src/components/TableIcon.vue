@@ -14,16 +14,7 @@ export default class TableIcon extends Vue {
   @Prop({ required: true, type: String, default: "36px" })
   public height!: string;
 
-  @Prop({ required: true, type: String, default: "0 0 512 512" })
-  public viewBox!: string;
-
   @Prop({ required: true, type: String })
   public icon!: string;
-
-  // created(): void {
-  //   if (this.$options?.components) {
-  //     this.$options.components[this.icon] = () => import(`../assets/icons/${this.icon}.png`);
-  //   }
-  // }
 }
 </script>
